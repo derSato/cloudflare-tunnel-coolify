@@ -5,12 +5,7 @@ services:
     container_name: cloudflared-tunnel
     image: cloudflare/cloudflared:latest
     restart: unless-stopped
+    command: tunnel run
     environment:
       # References the TOKEN variable from the .env file
       - TUNNEL_TOKEN=${TOKEN}
-    networks:
-      - coolify
-
-networks:
-  coolify:
-    external: true
