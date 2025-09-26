@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  tunnel:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    environment:
+      # References the TOKEN variable from the .env file
+      - TUNNEL_TOKEN=${TOKEN}
+    networks:
+      - coolify
+
+networks:
+  coolify:
+    external: true
