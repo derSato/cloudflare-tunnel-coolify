@@ -9,3 +9,9 @@ services:
     environment:
       # References the TOKEN variable from the .env file
       - TUNNEL_TOKEN=${TOKEN}
+    networks:
+      - coolify
+
+networks:
+  coolify:
+    external: true
